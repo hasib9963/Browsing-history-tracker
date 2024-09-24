@@ -1,0 +1,74 @@
+
+Keylogger Surveillance System
+
+
+In the keylogger surveillance system, there are three primary functionalities: Keystroke Logging, Browser History Logging, and DNS Logging. Here’s a detailed breakdown of each functionality:
+
+1. Keystroke Logging
+Purpose:
+Keystroke logging (keylogging) is a feature designed to record every keystroke made by a user on the keyboard. It is used to monitor and log user input for security auditing, surveillance, or forensic analysis.
+
+How It Works:
+
+Pynput Library: This is commonly used to implement keylogging in Python. It captures the keystrokes at the operating system level.
+Listener: A keyboard listener is started in a separate thread that logs all key events (presses and releases) to a file or database.
+Data Storage: Keystrokes are recorded along with a timestamp, giving insight into when specific keys were pressed.
+Use Cases:
+
+Monitoring user activity on a system.
+Security audits or surveillance.
+Forensic analysis in security investigations.
+
+Important Considerations:
+
+Legal and ethical issues arise when deploying keylogging software, as it can capture sensitive information like passwords, personal data, and private messages.
+
+2. Browser History Logging
+Purpose:
+This functionality is used to track and log a user’s browser history. It captures the list of websites visited by the user in supported web browsers, which can provide insights into their internet activity.
+
+How It Works:
+
+browser-history Library: This Python library is used to extract the browsing history from different browsers such as Chrome, Firefox, Edge, and others.
+Data Storage: It collects URLs visited by the user along with the date and time stamps, and the data is logged for later review.
+Supported Browsers: The system can track histories from popular browsers like Google Chrome, Mozilla Firefox, Microsoft Edge, etc.
+Use Cases:
+
+Tracking internet activity in workplaces or parental monitoring.
+Collecting forensic data for security investigations.
+Monitoring for suspicious or unauthorized browsing behavior.
+
+Important Considerations:
+
+Accessing browser history without user consent can raise significant privacy issues and may violate legal standards.
+
+3. DNS Logging
+Purpose:
+DNS logging records requests made to the Domain Name System (DNS). This feature helps monitor the domains that the system tries to resolve, providing a more technical and detailed insight into the internet activity.
+
+How It Works:
+
+DNS Monitoring: By listening to DNS queries made by the system, the logger can capture domain names that the user’s applications or browsers are trying to resolve.
+Data Storage: DNS requests are logged with timestamps and sometimes IP addresses to identify which domain was resolved at a specific time.
+Network-Level Insight: DNS logs can capture information about domains accessed not just through browsers but by any application that connects to the internet.
+Use Cases:
+
+Network activity analysis for cybersecurity purposes.
+Detecting malware or unusual behavior (e.g., contacting suspicious domains).
+Forensic investigations in case of a security breach.
+
+Important Considerations:
+
+DNS queries can contain sensitive information about a user’s browsing habits and application usage.
+As with the other functionalities, DNS logging must comply with local laws regarding data privacy and monitoring.
+
+Project Run Command:
+
+cmd1: pip install -r requirements.txt
+cmd2: python app.py
+
+Open Browser:
+
+Visit: http://127.0.0.1:5000/
+
+Thank you!

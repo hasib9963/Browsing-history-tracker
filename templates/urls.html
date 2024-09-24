@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Surveillance System - Visited URLs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Ensure the table doesn't overflow */
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto; /* Allow horizontal scrolling */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #002D62;
+            color: white; 
+        }
+
+        /* Ensure long URLs don't overflow */
+        td a {
+            word-break: break-all; /* Wrap long URLs */
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styling for small screens */
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 14px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Keylogger Surveillance System</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('keystrokes') }}">Keystrokes</a></li>
+                <li><a href="{{ url_for('urls') }}">URLs</a></li>
+                <li><a href="{{ url_for('dns') }}">DNS</a></li>
+                <li><a href="{{ url_for('index') }}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="table-container">
+            <h2>Visited URLs Log</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date and Time</th>
+                        <th>Browser</th>
+                        <th>Title</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for time, title, url, browser in history %}
+                    <tr>
+                        <td>{{ time }}</td>
+                        <td>{{ browser }}</td>
+                        <td>{{ title }}</td>
+                        <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Keylogger Surveillance System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

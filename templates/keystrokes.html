@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Surveillance System - Keystrokes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Keylogger Surveillance System</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('keystrokes') }}">Keystrokes</a></li>
+                <li><a href="{{ url_for('urls') }}">URLs</a></li>
+                <li><a href="{{ url_for('dns') }}">DNS</a></li>
+                <li><a href="{{ url_for('index') }}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="table-container">
+            <h2>Keystrokes Log</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date-Time</th>
+                        <th>Keystrokes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for keystroke in keystrokes %}
+                        <tr>
+                            <td>{{ keystroke[0] }}</td>
+                            <td>{{ keystroke[1] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Keylogger Surveillance System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

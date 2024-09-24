@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Surveillance System - DNS Logs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Ensure the table doesn't overflow */
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto; /* Allow horizontal scrolling */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Change the table header text color to black */
+        th {
+            background-color: #002D62;
+            color: white; /* Text color changed to black */
+        }
+
+        /* Responsive styling for small screens */
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 14px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Keylogger Surveillance System</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('keystrokes') }}">Keystrokes</a></li>
+                <li><a href="{{ url_for('urls') }}">URLs</a></li>
+                <li><a href="{{ url_for('dns') }}">DNS</a></li>
+                <li><a href="{{ url_for('login') }}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="table-container">
+            <h2>DNS Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date and Time</th>
+                        <th>DNS Log</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in dns %}
+                    <tr>
+                        <!-- Assume the first part of the log is the date-time (use proper format matching your data) -->
+                        <td>{{ log[:19] }}</td> <!-- First 19 characters for the datetime (YYYY-MM-DD HH:MM:SS) -->
+                        <td>{{ log[20:] }}</td> <!-- Remaining part for the DNS log -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Keylogger Surveillance System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
